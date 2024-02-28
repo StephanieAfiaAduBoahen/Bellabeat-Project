@@ -102,8 +102,10 @@ ggplot(data=daily_act_sleep, aes(x=weekday, y=totalsteps, fill=weekday))+
 Let visualize calories burnt during the week
 ```{r}
 ggplot(data=daily_act_sleep, aes(x=weekday, y=calories, fill=weekday))+ 
-  geom_bar(stat="identity", fill="blue")
+  geom_bar(stat="identity", fill="blue")+
+  labs(title="Calories burnt during the week")
 ```
+
 
 Let visualize active minutes
 ```{r}
