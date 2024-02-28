@@ -91,7 +91,7 @@ hourlySteps_merged %>%
   summary()
 ```
 
-Let visualize steps per week
+Visualize steps per week: From the anlaysis, the women had more steps on Tuesdays.
 ```{r}
 ggplot(data=daily_act_sleep, aes(x=weekday, y=totalsteps, fill=weekday))+ 
   geom_bar(stat="identity", fill="pink")+
@@ -99,7 +99,7 @@ ggplot(data=daily_act_sleep, aes(x=weekday, y=totalsteps, fill=weekday))+
 ```
 ![Steps per weekday](https://github.com/StephanieAfiaAduBoahen/Bellabeat-Projects/assets/158788793/4315e403-7ce2-42aa-9b5a-f400142040f3)
 
-Let visualize calories burnt during the week
+Visualize calories burnt during the week: More calories was burnt on Tuesdays. I assume since the highest steps is on tuesday, it shows a positive correlation.
 ```{r}
 ggplot(data=daily_act_sleep, aes(x=weekday, y=calories, fill=weekday))+ 
   geom_bar(stat="identity", fill="blue")+
@@ -107,7 +107,7 @@ ggplot(data=daily_act_sleep, aes(x=weekday, y=calories, fill=weekday))+
 ```
 ![Calories burnt](https://github.com/StephanieAfiaAduBoahen/Bellabeat-Projects/assets/158788793/7e7b811d-21e4-4c40-b96b-092020690050)
 
-Let visualize active minutes
+Visualize Very active minutes: Users were very active on Tuesday.
 ```{r}
 ggplot(data=daily_act_sleep, aes(x=weekday, y=veryactiveminutes, fill=weekday))+ 
   geom_bar(stat="identity", fill="Orange")+
@@ -115,7 +115,7 @@ ggplot(data=daily_act_sleep, aes(x=weekday, y=veryactiveminutes, fill=weekday))+
 ```
 ![Active Minutes](https://github.com/StephanieAfiaAduBoahen/Bellabeat-Projects/assets/158788793/f28052ec-f399-415c-9995-a8650fbe4f60)
 
-Let visualize sedentary minutes
+Visualize sedentary minutes: Tuesday has the highest sedentary minutes
 ```{r}
 ggplot(data=daily_act_sleep, aes(x=weekday, y=sedentaryminutes, fill=weekday))+ 
   geom_bar(stat="identity", fill="red")+
@@ -123,7 +123,7 @@ ggplot(data=daily_act_sleep, aes(x=weekday, y=sedentaryminutes, fill=weekday))+
 ```
 ![Sedentary Minutes](https://github.com/StephanieAfiaAduBoahen/Bellabeat-Projects/assets/158788793/3c14f644-2634-42d9-8061-647dc0b67692)
 
-Let visualize total minutes asleep
+Visualize total minutes asleep: From the analysis, the women slept more on Tuesdays, wednesdays and Thursdays. I assume since these are workdays, they are tired from their daily jobs and need more rest.
 ```{r}
 ggplot(data=daily_act_sleep, aes(x=weekday, y=totalminutesasleep, fill=weekday))+ 
   geom_bar(stat="identity", fill="purple")+
@@ -131,7 +131,7 @@ ggplot(data=daily_act_sleep, aes(x=weekday, y=totalminutesasleep, fill=weekday))
 ```
 ![Total Minutes Asleep](https://github.com/StephanieAfiaAduBoahen/Bellabeat-Projects/assets/158788793/3c368969-6349-4c25-8ae5-8f3ed4f7dc54)
 
-Let visualize total distance
+Visualize total distance: From the analyis, the women cover more distance on Tuesdays and less on Sundays.
 ```{r}
 ggplot(data=daily_act_sleep, aes(x=weekday, y=totaldistance, fill=weekday))+ 
   geom_bar(stat="identity", fill= "green")+
@@ -139,7 +139,7 @@ ggplot(data=daily_act_sleep, aes(x=weekday, y=totaldistance, fill=weekday))+
 ```
 ![Total distance covered](https://github.com/StephanieAfiaAduBoahen/Bellabeat-Projects/assets/158788793/96b0cb61-7365-485c-8a5f-53483f5c8d49)
 
-Let visualize houly steps
+Visualize hourly steps: Most users are active from 8am to 8pm. This may mean that they work around these times and therefore achieve more steps. The highest hourly steps is around 6pm-7pm. I assume they workout or take a walk/run around this time.
 ```{r}
 ggplot(data=hourlySteps_merged, aes(x=hour, y=steptotal, fill=hour))+
   geom_bar(stat="identity")+
@@ -147,7 +147,7 @@ ggplot(data=hourlySteps_merged, aes(x=hour, y=steptotal, fill=hour))+
 ```
 ![hourly steps](https://github.com/StephanieAfiaAduBoahen/Bellabeat-Projects/assets/158788793/ef41c0e0-978b-4e10-a09e-0816c8d2a575)
 
-Visualize total steps and calories
+Visualize total steps and calories: It shows a positive correlation between total steps and calories. This means they move in the same direction.
 ```{r}
 ggplot(data = daily_act_sleep, aes(x = totalsteps, y = calories)) + 
   geom_point() + geom_smooth() + labs(title ="Total Steps vs. Calories")
