@@ -105,14 +105,15 @@ ggplot(data=daily_act_sleep, aes(x=weekday, y=calories, fill=weekday))+
   geom_bar(stat="identity", fill="blue")+
   labs(title="Calories burnt during the week")
 ```
-
+![Calories burnt](https://github.com/StephanieAfiaAduBoahen/Bellabeat-Projects/assets/158788793/7e7b811d-21e4-4c40-b96b-092020690050)
 
 Let visualize active minutes
 ```{r}
 ggplot(data=daily_act_sleep, aes(x=weekday, y=veryactiveminutes, fill=weekday))+ 
   geom_bar(stat="identity", fill="Orange")+
-  labs(title="Active Minutes", y="Active Minutes")
+  labs(title="Very Active Minutes", y="Very Active Minutes")
 ```
+![Active Minutes](https://github.com/StephanieAfiaAduBoahen/Bellabeat-Projects/assets/158788793/f28052ec-f399-415c-9995-a8650fbe4f60)
 
 Let visualize sedentary minutes
 ```{r}
@@ -120,6 +121,7 @@ ggplot(data=daily_act_sleep, aes(x=weekday, y=sedentaryminutes, fill=weekday))+
   geom_bar(stat="identity", fill="red")+
   labs(title="Sedentary Minutes", y="Sedentary Minutes")
 ```
+![Sedentary Minutes](https://github.com/StephanieAfiaAduBoahen/Bellabeat-Projects/assets/158788793/3c14f644-2634-42d9-8061-647dc0b67692)
 
 Let visualize total minutes asleep
 ```{r}
@@ -127,6 +129,7 @@ ggplot(data=daily_act_sleep, aes(x=weekday, y=totalminutesasleep, fill=weekday))
   geom_bar(stat="identity", fill="purple")+
   labs(title="Total Minutes Asleep During the Week", y="Total Minutes Asleep")
 ```
+![Total Minutes Asleep](https://github.com/StephanieAfiaAduBoahen/Bellabeat-Projects/assets/158788793/3c368969-6349-4c25-8ae5-8f3ed4f7dc54)
 
 Let visualize total distance
 ```{r}
