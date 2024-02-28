@@ -137,6 +137,7 @@ ggplot(data=daily_act_sleep, aes(x=weekday, y=totaldistance, fill=weekday))+
   geom_bar(stat="identity", fill= "green")+
   labs(title = "Total distance covered", y= "Total Distance")
 ```
+![Total distance covered](https://github.com/StephanieAfiaAduBoahen/Bellabeat-Projects/assets/158788793/96b0cb61-7365-485c-8a5f-53483f5c8d49)
 
 Let visualize houly steps
 ```{r}
@@ -144,13 +145,14 @@ ggplot(data=hourlySteps_merged, aes(x=hour, y=steptotal, fill=hour))+
   geom_bar(stat="identity")+
   labs(title="Hourly Steps")
 ```
+![hourly steps](https://github.com/StephanieAfiaAduBoahen/Bellabeat-Projects/assets/158788793/ef41c0e0-978b-4e10-a09e-0816c8d2a575)
 
 Visualize total steps and calories
 ```{r}
 ggplot(data = daily_act_sleep, aes(x = totalsteps, y = calories)) + 
   geom_point() + geom_smooth() + labs(title ="Total Steps vs. Calories")
 ```
-
+![total cal vs steps](https://github.com/StephanieAfiaAduBoahen/Bellabeat-Projects/assets/158788793/e18663cd-e0c6-4523-8464-b6fa1a522d4c)
 
 
 
