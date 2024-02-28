@@ -28,7 +28,7 @@ sleepDay_merged <- sleepDay_merged[!duplicated(sleepDay_merged), ]
 nrow(sleepDay_merged[duplicated(sleepDay_merged), ])
 ```
 
-## Change column names to lowecases
+Change column names to lowecases
 ```{r}
 clean_names(dailyActivity_merged)
 dailyActivity_merged <- rename_with(dailyActivity_merged, tolower)
@@ -38,36 +38,113 @@ clean_names(sleepDay_merged)
 sleepDay_merged <- rename_with(sleepDay_merged, tolower)
 ```
 
-## Convert date string of hourlySteps_merged to date time and add a column for hours
+Convert date string of hourlySteps_merged to date time and add a column for hours
 ```{r}
 hourlySteps_merged$activityhour=as.POSIXct(hourlySteps_merged$activityhour,format="%m/%d/%Y %I:%M:%S %p")
 hourlySteps_merged$hour <-  format(hourlySteps_merged$activityhour,format= "%H")
 head(hourlySteps_merged)
 ```
 
-## Add week column to dailyActivity_merged
+Add week column to dailyActivity_merged
 ```{r}
 dailyActivity_merged <- dailyActivity_merged %>% 
   mutate( weekday = weekdays(as.Date(ActivityDate, "%m/%d/%Y")))
 ```
 
-## Merge dailyActivity_merged and sleepDay_merged
+Merge dailyActivity_merged and sleepDay_merged
 ```{r}
 daily_act_sleep <- merge(dailyActivity_merged, sleepDay_merged, by = "id")
 ```
 
-## Verify data in merged datasets
+Verify data in merged datasets
 ```{r}
 sum(is.na(daily_act_sleep))
 sum(duplicated(daily_act_sleep))
 n_distinct(daily_act_sleep$Id)
 colnames(daily_act_sleep)
 ```
-## Order days of the week from sunday to satarday
+Order days of the week from sunday to satarday
 ```{r}
 daily_act_sleep$weekday <- ordered(daily_act_sleep$weekday, levels=c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"))
 daily_act_sleep[order(daily_act_sleep$weekday), ]
 ```
+
+## ANALYZE
+For the daily_act_sleep dataframe summary
+```{r}
+daily_act_sleep %>%
+  select(totalsteps,
+         totaldistance,
+         veryactiveminutes,
+         sedentaryminutes,
+         calories,
+         totalsleeprecords,
+         totalminutesasleep,
+         totaltimeinbed) %>%
+  summary()
+```
+
+Summary of hourlySteps_merged
+```{r}
+hourlySteps_merged %>%
+  select(steptotal) %>%
+  summary()
+```
+
+Let visualize steps per week
+```{r}
+ggplot(data=daily_act_sleep, aes(x=weekday, y=totalsteps, fill=weekday))+ 
+  geom_bar(stat="identity", fill="pink")+
+  labs(title="Steps per weekday", y="Total Steps")
+```
+
+Let visualize calories burnt during the week
+```{r}
+ggplot(data=daily_act_sleep, aes(x=weekday, y=calories, fill=weekday))+ 
+  geom_bar(stat="identity", fill="blue")
+```
+
+Let visualize active minutes
+```{r}
+ggplot(data=daily_act_sleep, aes(x=weekday, y=veryactiveminutes, fill=weekday))+ 
+  geom_bar(stat="identity", fill="Orange")+
+  labs(title="Active Minutes", y="Active Minutes")
+```
+
+Let visualize sedentary minutes
+```{r}
+ggplot(data=daily_act_sleep, aes(x=weekday, y=sedentaryminutes, fill=weekday))+ 
+  geom_bar(stat="identity", fill="red")+
+  labs(title="Sedentary Minutes", y="Sedentary Minutes")
+```
+
+Let visualize total minutes asleep
+```{r}
+ggplot(data=daily_act_sleep, aes(x=weekday, y=totalminutesasleep, fill=weekday))+ 
+  geom_bar(stat="identity", fill="purple")+
+  labs(title="Total Minutes Asleep During the Week", y="Total Minutes Asleep")
+```
+
+Let visualize total distance
+```{r}
+ggplot(data=daily_act_sleep, aes(x=weekday, y=totaldistance, fill=weekday))+ 
+  geom_bar(stat="identity", fill= "green")+
+  labs(title = "Total distance covered", y= "Total Distance")
+```
+
+Let visualize houly steps
+```{r}
+ggplot(data=hourlySteps_merged, aes(x=hour, y=steptotal, fill=hour))+
+  geom_bar(stat="identity")+
+  labs(title="Hourly Steps")
+```
+
+Visualize total steps and calories
+```{r}
+ggplot(data = daily_act_sleep, aes(x = totalsteps, y = calories)) + 
+  geom_point() + geom_smooth() + labs(title ="Total Steps vs. Calories")
+```
+
 
 
 
