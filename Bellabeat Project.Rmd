@@ -158,7 +158,7 @@ ggplot(data=daily_act_sleep, aes(x=weekday, y=totaldistance, fill=weekday))+
   labs(title = "Total distance covered", y= "Total Distance")
 ```
 
-## Let visualize houly steps
+## Let visualize hourly steps
 ```{r}
 ggplot(data=hourlySteps_merged, aes(x=hour, y=steptotal, fill=hour))+
   geom_bar(stat="identity")+
