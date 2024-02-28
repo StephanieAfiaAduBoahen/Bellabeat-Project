@@ -97,6 +97,7 @@ ggplot(data=daily_act_sleep, aes(x=weekday, y=totalsteps, fill=weekday))+
   geom_bar(stat="identity", fill="pink")+
   labs(title="Steps per weekday", y="Total Steps")
 ```
+![Steps per weekday](https://github.com/StephanieAfiaAduBoahen/Bellabeat-Projects/assets/158788793/4315e403-7ce2-42aa-9b5a-f400142040f3)
 
 Let visualize calories burnt during the week
 ```{r}
