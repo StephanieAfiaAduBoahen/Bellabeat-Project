@@ -155,7 +155,19 @@ ggplot(data = daily_act_sleep, aes(x = totalsteps, y = calories)) +
 ![total cal vs steps](https://github.com/StephanieAfiaAduBoahen/Bellabeat-Projects/assets/158788793/e18663cd-e0c6-4523-8464-b6fa1a522d4c)
 
 
+## SHARE
 
+## ACT
+Conclusion:
+1.	Most users were active on Tuesdays and less active on Sundays.
+2.	The Women were more active during working hours 8am-8pm
+3.	The average sleep duration was 419.1 minutes which is approximately 7 hours. Experts recommend adults to sleep between 7-9 hours per night.
+
+Recommendation:
+1.	To promote healthier lifestyles, create features that motivate consumers to engage in more physical activity and get sufficient rest.
+2.	Provide education and further information about adopting healthy habits.
+3.	A larger sample size should be used to avoid bias.
+4.	More information should be collected such as age.
 
 
 
